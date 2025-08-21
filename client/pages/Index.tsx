@@ -187,7 +187,7 @@ export default function Index() {
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2Fe4e2236e4ab342f3b8997bbfbcd8d920%2Fa0e817b075af44d1b9d04b79705e6cae?format=webp&width=800"
                     alt="Kos Trail Logo"
-                    className="w-full h-full object-contain opacity-80"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <div className="space-y-4">
