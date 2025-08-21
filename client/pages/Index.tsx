@@ -1,5 +1,22 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Home, MapPin, MessageSquare, Filter, Users, Code, TrendingUp, DollarSign, Award, Heart, Clock, Zap, Shield, CheckCircle } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Home,
+  MapPin,
+  MessageSquare,
+  Filter,
+  Users,
+  Code,
+  TrendingUp,
+  DollarSign,
+  Award,
+  Heart,
+  Clock,
+  Zap,
+  Shield,
+  CheckCircle,
+} from "lucide-react";
 
 const slides = [
   {
@@ -8,97 +25,136 @@ const slides = [
     subtitle: "Intelligent Housing Discovery",
     content: "A smarter way to find home in Indonesia",
     icon: Home,
-    type: "title"
+    type: "title",
   },
   {
     id: 2,
     title: "Vision",
     subtitle: "A smarter way to find home.",
-    content: "In a world where finding the right place to live shouldn't be a struggle, we envision seamless connections between renters and their perfect space.",
-    type: "vision"
+    content:
+      "In a world where finding the right place to live shouldn't be a struggle, we envision seamless connections between renters and their perfect space.",
+    type: "vision",
   },
   {
     id: 3,
     title: "Problem",
     subtitle: "Searching for a kos is fragmented, impersonal, and exhausting.",
-    content: "Traditional rental search is broken. Students and professionals waste weeks scrolling through outdated listings, visiting unsuitable properties, and dealing with unresponsive landlords.",
-    stats: ["10M+ active renters", "Average 3-4 weeks to find housing", "70% report search frustration"],
-    type: "problem"
+    content:
+      "Traditional rental search is broken. Students and professionals waste weeks scrolling through outdated listings, visiting unsuitable properties, and dealing with unresponsive landlords.",
+    stats: [
+      "10M+ active renters",
+      "Average 3-4 weeks to find housing",
+      "70% report search frustration",
+    ],
+    type: "problem",
   },
   {
     id: 4,
     title: "Solution",
-    subtitle: "Autonomous agents that search, filter, and recommend rentals in real time.",
-    content: "Our AI agents understand your preferences, budget, and lifestyle to surface only the most relevant housing options. No more endless scrolling.",
+    subtitle:
+      "Autonomous agents that search, filter, and recommend rentals in real time.",
+    content:
+      "Our AI agents understand your preferences, budget, and lifestyle to surface only the most relevant housing options. No more endless scrolling.",
     icon: MessageSquare,
-    type: "solution"
+    type: "solution",
   },
   {
     id: 5,
     title: "Product Demo",
     subtitle: "Chat interface, smart filters, and map-based listing view.",
-    content: "Simply tell our agent what you're looking for. Get personalized recommendations with interactive maps, verified photos, and instant communication with property owners.",
-    features: ["Natural language search", "Real-time availability", "Verified listings", "Instant messaging"],
-    type: "demo"
+    content:
+      "Simply tell our agent what you're looking for. Get personalized recommendations with interactive maps, verified photos, and instant communication with property owners.",
+    features: [
+      "Natural language search",
+      "Real-time availability",
+      "Verified listings",
+      "Instant messaging",
+    ],
+    type: "demo",
   },
   {
     id: 6,
     title: "User Journey",
-    subtitle: "From query to match in seconds. Personalized, intuitive, efficient.",
-    content: "1. Describe your needs → 2. AI filters options → 3. View curated matches → 4. Schedule visits → 5. Secure your space",
-    type: "journey"
+    subtitle:
+      "From query to match in seconds. Personalized, intuitive, efficient.",
+    content:
+      "1. Describe your needs → 2. AI filters options → 3. View curated matches → 4. Schedule visits → 5. Secure your space",
+    type: "journey",
   },
   {
     id: 7,
     title: "Technology Stack",
     subtitle: "Flask, Redis, React, Python agents. Optional Web3 layer.",
-    content: "Built for scale and reliability. Our agent infrastructure processes thousands of listings in real-time.",
+    content:
+      "Built for scale and reliability. Our agent infrastructure processes thousands of listings in real-time.",
     icon: Code,
-    tech: ["Python Flask API", "Redis for caching", "React frontend", "AI agents", "Web3 ready"],
-    type: "tech"
+    tech: [
+      "Python Flask API",
+      "Redis for caching",
+      "React frontend",
+      "AI agents",
+      "Web3 ready",
+    ],
+    type: "tech",
   },
   {
     id: 8,
     title: "Market Opportunity",
-    subtitle: "10M+ renters in Indonesia. High mobile-first demand. PropTech growth.",
-    content: "Indonesia's rental market is massive and underserved. Mobile adoption and digital payment growth create perfect conditions for disruption.",
-    stats: ["$2.5B rental market", "85% mobile usage", "25% PropTech growth YoY"],
+    subtitle:
+      "10M+ renters in Indonesia. High mobile-first demand. PropTech growth.",
+    content:
+      "Indonesia's rental market is massive and underserved. Mobile adoption and digital payment growth create perfect conditions for disruption.",
+    stats: [
+      "$2.5B rental market",
+      "85% mobile usage",
+      "25% PropTech growth YoY",
+    ],
     icon: TrendingUp,
-    type: "market"
+    type: "market",
   },
   {
     id: 9,
     title: "Business Model",
     subtitle: "Freemium SaaS for users. B2B tools for property managers.",
-    content: "Multiple revenue streams: premium user subscriptions, property management tools, and transaction fees.",
-    revenue: ["User subscriptions", "Property management SaaS", "Transaction fees", "Premium listings"],
+    content:
+      "Multiple revenue streams: premium user subscriptions, property management tools, and transaction fees.",
+    revenue: [
+      "User subscriptions",
+      "Property management SaaS",
+      "Transaction fees",
+      "Premium listings",
+    ],
     icon: DollarSign,
-    type: "business"
+    type: "business",
   },
   {
     id: 10,
     title: "Team",
     subtitle: "Engineering-led. Agentic thinkers. Fast executors.",
-    content: "Experienced team with deep PropTech and AI expertise. Previous exits and proven track record in Indonesian market.",
+    content:
+      "Experienced team with deep PropTech and AI expertise. Previous exits and proven track record in Indonesian market.",
     icon: Users,
-    type: "team"
+    type: "team",
   },
   {
     id: 11,
     title: "Brand Identity",
-    subtitle: "Editorial clarity meets local warmth. A vessel for discovery, not distraction.",
-    content: "Clean, trustworthy design that puts users first. Like a well-designed subway system - functional, reliable, quietly excellent.",
+    subtitle:
+      "Editorial clarity meets local warmth. A vessel for discovery, not distraction.",
+    content:
+      "Clean, trustworthy design that puts users first. Like a well-designed subway system - functional, reliable, quietly excellent.",
     icon: Award,
-    type: "brand"
+    type: "brand",
   },
   {
     id: 12,
     title: "Call to Action",
     subtitle: "Join us in reshaping housing discovery.",
-    content: "Ready to transform how 10 million Indonesians find their home? Let's build the future of rental discovery together.",
+    content:
+      "Ready to transform how 10 million Indonesians find their home? Let's build the future of rental discovery together.",
     icon: Heart,
-    type: "cta"
-  }
+    type: "cta",
+  },
 ];
 
 export default function Index() {
@@ -111,29 +167,33 @@ export default function Index() {
 
   // Set document title
   useEffect(() => {
-    document.title = 'Kos Trail - Pitch Deck';
+    document.title = "Kos Trail - Pitch Deck";
   }, []);
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
         e.preventDefault();
         prevSlide();
-      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      } else if (
+        e.key === "ArrowRight" ||
+        e.key === "ArrowDown" ||
+        e.key === " "
+      ) {
         e.preventDefault();
         nextSlide();
-      } else if (e.key === 'Home') {
+      } else if (e.key === "Home") {
         e.preventDefault();
         setCurrentSlide(0);
-      } else if (e.key === 'End') {
+      } else if (e.key === "End") {
         e.preventDefault();
         setCurrentSlide(slides.length - 1);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentSlide]);
 
   const nextSlide = () => {
@@ -158,7 +218,8 @@ export default function Index() {
 
   // Auto-cycle user journey steps
   useEffect(() => {
-    if (currentSlide === 5) { // User Journey slide
+    if (currentSlide === 5) {
+      // User Journey slide
       const interval = setInterval(() => {
         setCurrentStep((prev) => (prev + 1) % 5);
       }, 2000);
@@ -190,8 +251,8 @@ export default function Index() {
                   onClick={() => goToSlide(index)}
                   className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
                     index === currentSlide
-                      ? 'bg-primary w-6'
-                      : 'bg-border hover:bg-muted-foreground/50'
+                      ? "bg-primary w-6"
+                      : "bg-border hover:bg-muted-foreground/50"
                   }`}
                 />
               ))}
@@ -203,14 +264,15 @@ export default function Index() {
         </div>
       </header>
 
-
       {/* Main slide content */}
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-8 max-w-5xl">
-          <div className="min-h-[75vh] flex flex-col justify-center" key={currentSlide}>
-            
+          <div
+            className="min-h-[75vh] flex flex-col justify-center"
+            key={currentSlide}
+          >
             {/* Title slide */}
-            {slide.type === 'title' && (
+            {slide.type === "title" && (
               <div className="text-center space-y-8">
                 <div
                   className="w-24 h-24 mx-auto transform hover:scale-110 transition-all duration-500 cursor-pointer group relative"
@@ -221,9 +283,11 @@ export default function Index() {
                   onMouseEnter={() => setLogoClicked(true)}
                   onMouseLeave={() => setLogoClicked(false)}
                 >
-                  <div className={`transition-all duration-500 ${
-                    logoClicked ? 'rotate-12 scale-110' : 'rotate-0 scale-100'
-                  }`}>
+                  <div
+                    className={`transition-all duration-500 ${
+                      logoClicked ? "rotate-12 scale-110" : "rotate-0 scale-100"
+                    }`}
+                  >
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets%2Fe4e2236e4ab342f3b8997bbfbcd8d920%2Fa0e817b075af44d1b9d04b79705e6cae?format=webp&width=800"
                       alt="Kos Trail Logo"
@@ -253,7 +317,7 @@ export default function Index() {
             )}
 
             {/* Vision slide */}
-            {slide.type === 'vision' && (
+            {slide.type === "vision" && (
               <div className="text-center space-y-16">
                 <h2 className="text-6xl md:text-7xl font-display font-normal text-foreground">
                   {slide.title}
@@ -268,7 +332,7 @@ export default function Index() {
             )}
 
             {/* Problem slide */}
-            {slide.type === 'problem' && (
+            {slide.type === "problem" && (
               <div className="space-y-16">
                 <div className="text-center space-y-8">
                   <h2 className="text-6xl md:text-7xl font-display font-normal text-foreground">
@@ -289,7 +353,9 @@ export default function Index() {
                           key={index}
                           className="text-center p-8 border border-border hover:border-primary/20 transition-all duration-300"
                         >
-                          <p className="text-lg text-foreground font-grotesk">{stat}</p>
+                          <p className="text-lg text-foreground font-grotesk">
+                            {stat}
+                          </p>
                         </div>
                       ))}
                     </div>
@@ -299,9 +365,11 @@ export default function Index() {
             )}
 
             {/* Solution slide */}
-            {slide.type === 'solution' && (
+            {slide.type === "solution" && (
               <div className="text-center space-y-12">
-                {Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground" />}
+                {Icon && (
+                  <Icon className="w-12 h-12 mx-auto text-muted-foreground" />
+                )}
                 <h2 className="text-4xl md:text-5xl font-light text-foreground">
                   {slide.title}
                 </h2>
@@ -315,7 +383,7 @@ export default function Index() {
             )}
 
             {/* Demo slide */}
-            {slide.type === 'demo' && (
+            {slide.type === "demo" && (
               <div className="space-y-12">
                 <div className="text-center space-y-6">
                   <h2 className="text-4xl md:text-5xl font-light text-foreground">
@@ -338,12 +406,16 @@ export default function Index() {
                           <div
                             key={index}
                             className={`group flex items-center space-x-3 p-4 border border-border rounded-lg hover:border-foreground/20 hover:bg-muted/10 transition-all duration-300 cursor-pointer transform ${
-                              animateStats ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                              animateStats
+                                ? "translate-y-0 opacity-100"
+                                : "translate-y-4 opacity-0"
                             }`}
                             style={{ transitionDelay: `${index * 150}ms` }}
                           >
                             <IconComponent className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                            <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{feature}</span>
+                            <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                              {feature}
+                            </span>
                           </div>
                         );
                       })}
@@ -354,7 +426,7 @@ export default function Index() {
             )}
 
             {/* Journey slide */}
-            {slide.type === 'journey' && (
+            {slide.type === "journey" && (
               <div className="text-center space-y-12">
                 <h2 className="text-4xl md:text-5xl font-light text-foreground">
                   {slide.title}
@@ -365,35 +437,55 @@ export default function Index() {
                 <div className="max-w-4xl mx-auto">
                   <div className="flex items-center justify-between mb-8 relative">
                     <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border transform -translate-y-1/2" />
-                    {['Describe', 'AI Filters', 'View Matches', 'Schedule', 'Secure'].map((step, index) => (
-                      <div key={index} className="relative z-10 flex flex-col items-center space-y-2">
-                        <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${
-                          currentStep >= index
-                            ? 'bg-foreground border-foreground text-background'
-                            : 'bg-background border-border text-muted-foreground'
-                        }`}>
-                          <span className="text-xs font-medium">{index + 1}</span>
+                    {[
+                      "Describe",
+                      "AI Filters",
+                      "View Matches",
+                      "Schedule",
+                      "Secure",
+                    ].map((step, index) => (
+                      <div
+                        key={index}
+                        className="relative z-10 flex flex-col items-center space-y-2"
+                      >
+                        <div
+                          className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${
+                            currentStep >= index
+                              ? "bg-foreground border-foreground text-background"
+                              : "bg-background border-border text-muted-foreground"
+                          }`}
+                        >
+                          <span className="text-xs font-medium">
+                            {index + 1}
+                          </span>
                         </div>
-                        <span className={`text-xs transition-colors duration-500 ${
-                          currentStep >= index ? 'text-foreground' : 'text-muted-foreground'
-                        }`}>
+                        <span
+                          className={`text-xs transition-colors duration-500 ${
+                            currentStep >= index
+                              ? "text-foreground"
+                              : "text-muted-foreground"
+                          }`}
+                        >
                           {step}
                         </span>
                       </div>
                     ))}
                   </div>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Experience the seamless flow from initial search to securing your perfect space
+                    Experience the seamless flow from initial search to securing
+                    your perfect space
                   </p>
                 </div>
               </div>
             )}
 
             {/* Tech slide */}
-            {slide.type === 'tech' && (
+            {slide.type === "tech" && (
               <div className="space-y-12">
                 <div className="text-center space-y-6">
-                  {Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground" />}
+                  {Icon && (
+                    <Icon className="w-12 h-12 mx-auto text-muted-foreground" />
+                  )}
                   <h2 className="text-4xl md:text-5xl font-light text-foreground">
                     {slide.title}
                   </h2>
@@ -411,11 +503,15 @@ export default function Index() {
                         <div
                           key={index}
                           className={`group p-4 border border-border rounded-lg hover:border-foreground/20 hover:bg-muted/10 transition-all duration-300 cursor-pointer transform ${
-                            animateStats ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                            animateStats
+                              ? "translate-y-0 opacity-100"
+                              : "translate-y-4 opacity-0"
                           }`}
                           style={{ transitionDelay: `${index * 100}ms` }}
                         >
-                          <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{tech}</span>
+                          <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                            {tech}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -425,10 +521,12 @@ export default function Index() {
             )}
 
             {/* Market slide */}
-            {slide.type === 'market' && (
+            {slide.type === "market" && (
               <div className="space-y-12">
                 <div className="text-center space-y-6">
-                  {Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground animate-pulse" />}
+                  {Icon && (
+                    <Icon className="w-12 h-12 mx-auto text-muted-foreground animate-pulse" />
+                  )}
                   <h2 className="text-4xl md:text-5xl font-light text-foreground">
                     {slide.title}
                   </h2>
@@ -446,11 +544,15 @@ export default function Index() {
                         <div
                           key={index}
                           className={`text-center p-6 border border-border rounded-lg hover:bg-muted/20 hover:scale-105 transition-all duration-500 cursor-pointer transform ${
-                            animateStats ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                            animateStats
+                              ? "translate-y-0 opacity-100"
+                              : "translate-y-8 opacity-0"
                           }`}
                           style={{ transitionDelay: `${index * 200}ms` }}
                         >
-                          <p className="text-sm text-muted-foreground">{stat}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {stat}
+                          </p>
                         </div>
                       ))}
                     </div>
@@ -460,10 +562,12 @@ export default function Index() {
             )}
 
             {/* Business slide */}
-            {slide.type === 'business' && (
+            {slide.type === "business" && (
               <div className="space-y-12">
                 <div className="text-center space-y-6">
-                  {Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground" />}
+                  {Icon && (
+                    <Icon className="w-12 h-12 mx-auto text-muted-foreground" />
+                  )}
                   <h2 className="text-4xl md:text-5xl font-light text-foreground">
                     {slide.title}
                   </h2>
@@ -482,17 +586,29 @@ export default function Index() {
                           key={index}
                           className={`group p-4 border rounded-lg cursor-pointer transition-all duration-300 transform ${
                             selectedRevenue === rev
-                              ? 'border-foreground bg-muted/10 scale-105'
-                              : 'border-border hover:border-foreground/20 hover:bg-muted/10'
+                              ? "border-foreground bg-muted/10 scale-105"
+                              : "border-border hover:border-foreground/20 hover:bg-muted/10"
                           } ${
-                            animateStats ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                            animateStats
+                              ? "translate-y-0 opacity-100"
+                              : "translate-y-4 opacity-0"
                           }`}
                           style={{ transitionDelay: `${index * 100}ms` }}
-                          onClick={() => setSelectedRevenue(selectedRevenue === rev ? null : rev)}
+                          onClick={() =>
+                            setSelectedRevenue(
+                              selectedRevenue === rev ? null : rev,
+                            )
+                          }
                         >
-                          <span className={`text-sm transition-colors ${
-                            selectedRevenue === rev ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'
-                          }`}>{rev}</span>
+                          <span
+                            className={`text-sm transition-colors ${
+                              selectedRevenue === rev
+                                ? "text-foreground"
+                                : "text-muted-foreground group-hover:text-foreground"
+                            }`}
+                          >
+                            {rev}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -502,9 +618,11 @@ export default function Index() {
             )}
 
             {/* Team, Brand, CTA slides */}
-            {(slide.type === 'team' || slide.type === 'brand' || slide.type === 'cta') && (
+            {(slide.type === "team" ||
+              slide.type === "brand" ||
+              slide.type === "cta") && (
               <div className="text-center space-y-12">
-                {slide.type === 'brand' ? (
+                {slide.type === "brand" ? (
                   <div
                     className="w-16 h-16 mx-auto transform hover:scale-110 transition-all duration-500 cursor-pointer group relative"
                     onClick={() => setShowLogoModal(true)}
@@ -518,7 +636,9 @@ export default function Index() {
                     </div>
                   </div>
                 ) : (
-                  Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground" />
+                  Icon && (
+                    <Icon className="w-12 h-12 mx-auto text-muted-foreground" />
+                  )
                 )}
                 <h2 className="text-4xl md:text-5xl font-light text-foreground">
                   {slide.title}
@@ -531,7 +651,6 @@ export default function Index() {
                 </p>
               </div>
             )}
-
           </div>
         </div>
       </main>
@@ -574,9 +693,13 @@ export default function Index() {
                 />
               </div>
               <div className="space-y-4">
-                <h3 className="text-2xl font-display font-normal text-foreground">Kos Trail</h3>
+                <h3 className="text-2xl font-display font-normal text-foreground">
+                  Kos Trail
+                </h3>
                 <p className="text-lg text-muted-foreground leading-relaxed font-grotesk max-w-sm mx-auto">
-                  Our logo represents the journey home. The concentric paths symbolize the intelligent routes our AI agents take to connect renters with their perfect space.
+                  Our logo represents the journey home. The concentric paths
+                  symbolize the intelligent routes our AI agents take to connect
+                  renters with their perfect space.
                 </p>
                 <div className="pt-6">
                   <button
@@ -591,7 +714,6 @@ export default function Index() {
           </div>
         </div>
       )}
-
     </div>
   );
 }
