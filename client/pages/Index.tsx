@@ -401,7 +401,17 @@ export default function Index() {
             {/* Team, Brand, CTA slides */}
             {(slide.type === 'team' || slide.type === 'brand' || slide.type === 'cta') && (
               <div className="text-center space-y-12">
-                {Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground" />}
+                {slide.type === 'brand' ? (
+                  <div className="w-16 h-16 mx-auto">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2Fe4e2236e4ab342f3b8997bbfbcd8d920%2Fa0e817b075af44d1b9d04b79705e6cae?format=webp&width=800"
+                      alt="Kos Trail Logo"
+                      className="w-full h-full object-contain opacity-80"
+                    />
+                  </div>
+                ) : (
+                  Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground" />
+                )}
                 <h2 className="text-4xl md:text-5xl font-light text-foreground">
                   {slide.title}
                 </h2>
