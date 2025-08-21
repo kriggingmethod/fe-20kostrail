@@ -556,7 +556,6 @@ export default function Index() {
                         className="w-full h-full object-contain drop-shadow-lg"
                       />
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg" />
                   </div>
                 ) : (
                   Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground" />
