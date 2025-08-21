@@ -269,30 +269,27 @@ export default function Index() {
 
             {/* Problem slide */}
             {slide.type === 'problem' && (
-              <div className="space-y-12">
-                <div className="text-center space-y-6">
-                  <h2 className="text-4xl md:text-5xl font-light text-foreground">
+              <div className="space-y-16">
+                <div className="text-center space-y-8">
+                  <h2 className="text-6xl md:text-7xl font-display font-normal text-foreground">
                     {slide.title}
                   </h2>
-                  <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-3xl mx-auto">
+                  <p className="text-2xl md:text-3xl text-foreground font-grotesk font-light max-w-4xl mx-auto leading-tight">
                     {slide.subtitle}
                   </p>
                 </div>
-                <div className="max-w-2xl mx-auto">
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                <div className="max-w-3xl mx-auto">
+                  <p className="text-xl text-muted-foreground leading-relaxed mb-12 font-grotesk">
                     {slide.content}
                   </p>
                   {slide.stats && (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                       {slide.stats.map((stat, index) => (
                         <div
                           key={index}
-                          className={`text-center p-6 border border-border rounded-lg hover:bg-muted/30 transition-all duration-500 cursor-pointer transform ${
-                            animateStats ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                          }`}
-                          style={{ transitionDelay: `${index * 200}ms` }}
+                          className="text-center p-8 border border-border hover:border-primary/20 transition-all duration-300"
                         >
-                          <p className="text-sm text-muted-foreground">{stat}</p>
+                          <p className="text-lg text-foreground font-grotesk">{stat}</p>
                         </div>
                       ))}
                     </div>
