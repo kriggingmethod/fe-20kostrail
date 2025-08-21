@@ -186,10 +186,10 @@ export default function Index() {
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                    index === currentSlide 
-                      ? 'bg-foreground w-6' 
-                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                  className={`h-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                    index === currentSlide
+                      ? 'bg-foreground w-8'
+                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/70 w-2'
                   }`}
                 />
               ))}
