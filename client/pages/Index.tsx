@@ -536,27 +536,27 @@ export default function Index() {
         </div>
       </main>
 
-      {/* Navigation controls */}
+      {/* Minimal navigation */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="flex items-center space-x-4 bg-background/70 backdrop-blur-xl border border-border/50 rounded-full px-6 py-3 shadow-2xl">
+        <div className="flex items-center space-x-6 bg-background/95 backdrop-blur-sm border border-border px-8 py-4">
           <button
             onClick={prevSlide}
-            className="p-2 rounded-full hover:bg-muted transition-all duration-200 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            className="text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={currentSlide === 0}
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4" />
           </button>
 
-          <span className="text-sm text-muted-foreground px-4 font-medium">
+          <span className="text-sm text-muted-foreground font-grotesk font-medium px-4">
             {currentSlide + 1} of {slides.length}
           </span>
 
           <button
             onClick={nextSlide}
-            className="p-2 rounded-full hover:bg-muted transition-all duration-200 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            className="text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={currentSlide === slides.length - 1}
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4" />
           </button>
         </div>
       </div>
