@@ -204,7 +204,7 @@ export default function Index() {
       {/* Main slide content */}
       <main className="pt-20 pb-20">
         <div className="container mx-auto px-6 max-w-4xl">
-          <div className="min-h-[80vh] flex flex-col justify-center animate-slide-up">
+          <div className="min-h-[80vh] flex flex-col justify-center animate-slide-up" key={currentSlide}>
             
             {/* Title slide */}
             {slide.type === 'title' && (
