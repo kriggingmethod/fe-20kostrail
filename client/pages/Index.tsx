@@ -183,7 +183,13 @@ export default function Index() {
             {/* Title slide */}
             {slide.type === 'title' && (
               <div className="text-center space-y-8">
-                {Icon && <Icon className="w-16 h-16 mx-auto text-muted-foreground" />}
+                <div className="w-24 h-24 mx-auto">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2Fe4e2236e4ab342f3b8997bbfbcd8d920%2Fa0e817b075af44d1b9d04b79705e6cae?format=webp&width=800"
+                    alt="Kos Trail Logo"
+                    className="w-full h-full object-contain opacity-80"
+                  />
+                </div>
                 <div className="space-y-4">
                   <h1 className="text-6xl md:text-7xl font-light text-foreground tracking-tight">
                     {slide.title}
