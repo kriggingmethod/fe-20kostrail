@@ -207,10 +207,26 @@ export default function Index() {
         </div>
       </header>
 
+      {/* Floating particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-foreground/20 rounded-full animate-pulse"
+            style={{
+              left: `${20 + i * 15}%`,
+              top: `${30 + i * 10}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: '3s'
+            }}
+          />
+        ))}
+      </div>
+
       {/* Main slide content */}
-      <main className="pt-20 pb-20">
+      <main className="pt-20 pb-20 relative z-10">
         <div className="container mx-auto px-6 max-w-4xl">
-          <div className="min-h-[80vh] flex flex-col justify-center animate-slide-up" key={currentSlide}>
+          <div className="min-h-[80vh] flex flex-col justify-center animate-slide-up bg-background/30 backdrop-blur-sm rounded-3xl border border-border/30 shadow-2xl p-8" key={currentSlide}>
             
             {/* Title slide */}
             {slide.type === 'title' && (
