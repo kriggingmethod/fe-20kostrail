@@ -181,20 +181,28 @@ export default function Index() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-l from-blue-500/10 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-transparent rounded-full blur-3xl" />
       {/* Header with slide navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-border/50 shadow-lg">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-border/50 shadow-premium">
+        {/* Progress bar */}
+        <div className="h-1 bg-muted-foreground/20">
+          <div
+            className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500 ease-out"
+            style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
+          />
+        </div>
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-sm font-medium text-muted-foreground">
-              Kos Trail Pitch Deck
+            <div className="text-sm font-medium text-muted-foreground flex items-center space-x-2">
+              <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse" />
+              <span>Kos Trail Pitch Deck</span>
             </div>
             <div className="flex items-center space-x-2">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                  className={`h-2 rounded-full transition-all duration-300 hover:scale-110 relative ${
                     index === currentSlide
-                      ? 'bg-foreground w-8'
+                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 w-8 glow'
                       : 'bg-muted-foreground/30 hover:bg-muted-foreground/70 w-2'
                   }`}
                 />
