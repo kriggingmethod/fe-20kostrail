@@ -561,27 +561,27 @@ export default function Index() {
         </div>
       </div>
 
-      {/* Premium Logo Modal */}
+      {/* Minimal Logo Modal */}
       {showLogoModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="bg-background border border-border rounded-2xl p-8 max-w-md mx-4 transform animate-scale-in">
-            <div className="text-center space-y-6">
-              <div className="w-20 h-20 mx-auto animate-pulse-gentle">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
+          <div className="bg-background border border-border p-12 max-w-lg mx-4">
+            <div className="text-center space-y-8">
+              <div className="w-16 h-16 mx-auto">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2Fe4e2236e4ab342f3b8997bbfbcd8d920%2Fa0e817b075af44d1b9d04b79705e6cae?format=webp&width=800"
                   alt="Kos Trail Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="space-y-3">
-                <h3 className="text-xl font-medium text-foreground">Kos Trail</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Our logo represents the journey home. The concentric paths symbolize the intelligent routes our AI agents take to connect renters with their perfect space. Clean, purposeful, human.
+              <div className="space-y-4">
+                <h3 className="text-2xl font-display font-normal text-foreground">Kos Trail</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed font-grotesk max-w-sm mx-auto">
+                  Our logo represents the journey home. The concentric paths symbolize the intelligent routes our AI agents take to connect renters with their perfect space.
                 </p>
-                <div className="pt-4">
+                <div className="pt-6">
                   <button
                     onClick={() => setShowLogoModal(false)}
-                    className="px-6 py-2 bg-foreground text-background rounded-lg hover:bg-foreground/90 transition-colors text-sm font-medium"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors font-grotesk"
                   >
                     Close
                   </button>
