@@ -257,10 +257,10 @@ export default function Index() {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <h1 className="text-6xl md:text-7xl font-light text-foreground tracking-tight">
+                  <h1 className="text-6xl md:text-8xl font-light tracking-tight bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent animate-fade-in">
                     {slide.title}
                   </h1>
-                  <p className="text-xl md:text-2xl text-muted-foreground font-light">
+                  <p className="text-xl md:text-3xl text-muted-foreground font-light animate-fade-in animate-delay-200">
                     {slide.subtitle}
                   </p>
                 </div>
