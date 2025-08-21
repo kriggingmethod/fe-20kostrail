@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Home, MapPin, MessageSquare, Filter, Users, Code, TrendingUp, DollarSign, Award, Heart } from "lucide-react";
+import { ChevronLeft, ChevronRight, Home, MapPin, MessageSquare, Filter, Users, Code, TrendingUp, DollarSign, Award, Heart, Clock, Zap, Shield, CheckCircle } from "lucide-react";
 
 const slides = [
   {
@@ -103,6 +103,9 @@ const slides = [
 
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [animateStats, setAnimateStats] = useState(false);
+  const [selectedRevenue, setSelectedRevenue] = useState<string | null>(null);
+  const [currentStep, setCurrentStep] = useState(0);
 
   // Set document title
   useEffect(() => {
@@ -133,15 +136,38 @@ export default function Index() {
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setAnimateStats(false);
+    setSelectedRevenue(null);
+    setTimeout(() => setAnimateStats(true), 300);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setAnimateStats(false);
+    setSelectedRevenue(null);
+    setTimeout(() => setAnimateStats(true), 300);
   };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
+    setAnimateStats(false);
+    setTimeout(() => setAnimateStats(true), 300);
   };
+
+  // Auto-cycle user journey steps
+  useEffect(() => {
+    if (currentSlide === 5) { // User Journey slide
+      const interval = setInterval(() => {
+        setCurrentStep((prev) => (prev + 1) % 5);
+      }, 2000);
+      return () => clearInterval(interval);
+    }
+  }, [currentSlide]);
+
+  // Animate stats when slide changes
+  useEffect(() => {
+    setAnimateStats(true);
+  }, [currentSlide]);
 
   const slide = slides[currentSlide];
   const Icon = slide.icon;
@@ -239,7 +265,13 @@ export default function Index() {
                   {slide.stats && (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {slide.stats.map((stat, index) => (
-                        <div key={index} className="text-center p-6 border border-border rounded-lg">
+                        <div
+                          key={index}
+                          className={`text-center p-6 border border-border rounded-lg hover:bg-muted/30 transition-all duration-500 cursor-pointer transform ${
+                            animateStats ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                          }`}
+                          style={{ transitionDelay: `${index * 200}ms` }}
+                        >
                           <p className="text-sm text-muted-foreground">{stat}</p>
                         </div>
                       ))}
@@ -282,12 +314,22 @@ export default function Index() {
                   </p>
                   {slide.features && (
                     <div className="grid grid-cols-2 gap-4">
-                      {slide.features.map((feature, index) => (
-                        <div key={index} className="flex items-center space-x-3 p-4 border border-border rounded-lg">
-                          <div className="w-2 h-2 bg-foreground rounded-full" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
-                        </div>
-                      ))}
+                      {slide.features.map((feature, index) => {
+                        const icons = [MessageSquare, Zap, Shield, CheckCircle];
+                        const IconComponent = icons[index] || CheckCircle;
+                        return (
+                          <div
+                            key={index}
+                            className={`group flex items-center space-x-3 p-4 border border-border rounded-lg hover:border-foreground/20 hover:bg-muted/10 transition-all duration-300 cursor-pointer transform ${
+                              animateStats ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                            }`}
+                            style={{ transitionDelay: `${index * 150}ms` }}
+                          >
+                            <IconComponent className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                            <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{feature}</span>
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
@@ -303,9 +345,28 @@ export default function Index() {
                 <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-3xl mx-auto">
                   {slide.subtitle}
                 </p>
-                <div className="max-w-3xl mx-auto">
+                <div className="max-w-4xl mx-auto">
+                  <div className="flex items-center justify-between mb-8 relative">
+                    <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border transform -translate-y-1/2" />
+                    {['Describe', 'AI Filters', 'View Matches', 'Schedule', 'Secure'].map((step, index) => (
+                      <div key={index} className="relative z-10 flex flex-col items-center space-y-2">
+                        <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${
+                          currentStep >= index
+                            ? 'bg-foreground border-foreground text-background'
+                            : 'bg-background border-border text-muted-foreground'
+                        }`}>
+                          <span className="text-xs font-medium">{index + 1}</span>
+                        </div>
+                        <span className={`text-xs transition-colors duration-500 ${
+                          currentStep >= index ? 'text-foreground' : 'text-muted-foreground'
+                        }`}>
+                          {step}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    {slide.content}
+                    Experience the seamless flow from initial search to securing your perfect space
                   </p>
                 </div>
               </div>
@@ -330,8 +391,14 @@ export default function Index() {
                   {slide.tech && (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {slide.tech.map((tech, index) => (
-                        <div key={index} className="p-4 border border-border rounded-lg">
-                          <span className="text-sm text-muted-foreground">{tech}</span>
+                        <div
+                          key={index}
+                          className={`group p-4 border border-border rounded-lg hover:border-foreground/20 hover:bg-muted/10 transition-all duration-300 cursor-pointer transform ${
+                            animateStats ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                          }`}
+                          style={{ transitionDelay: `${index * 100}ms` }}
+                        >
+                          <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{tech}</span>
                         </div>
                       ))}
                     </div>
@@ -344,7 +411,7 @@ export default function Index() {
             {slide.type === 'market' && (
               <div className="space-y-12">
                 <div className="text-center space-y-6">
-                  {Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground" />}
+                  {Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground animate-pulse" />}
                   <h2 className="text-4xl md:text-5xl font-light text-foreground">
                     {slide.title}
                   </h2>
@@ -359,7 +426,13 @@ export default function Index() {
                   {slide.stats && (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {slide.stats.map((stat, index) => (
-                        <div key={index} className="text-center p-6 border border-border rounded-lg">
+                        <div
+                          key={index}
+                          className={`text-center p-6 border border-border rounded-lg hover:bg-muted/20 hover:scale-105 transition-all duration-500 cursor-pointer transform ${
+                            animateStats ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                          }`}
+                          style={{ transitionDelay: `${index * 200}ms` }}
+                        >
                           <p className="text-sm text-muted-foreground">{stat}</p>
                         </div>
                       ))}
@@ -388,8 +461,21 @@ export default function Index() {
                   {slide.revenue && (
                     <div className="grid grid-cols-2 gap-4">
                       {slide.revenue.map((rev, index) => (
-                        <div key={index} className="p-4 border border-border rounded-lg">
-                          <span className="text-sm text-muted-foreground">{rev}</span>
+                        <div
+                          key={index}
+                          className={`group p-4 border rounded-lg cursor-pointer transition-all duration-300 transform ${
+                            selectedRevenue === rev
+                              ? 'border-foreground bg-muted/10 scale-105'
+                              : 'border-border hover:border-foreground/20 hover:bg-muted/10'
+                          } ${
+                            animateStats ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                          }`}
+                          style={{ transitionDelay: `${index * 100}ms` }}
+                          onClick={() => setSelectedRevenue(selectedRevenue === rev ? null : rev)}
+                        >
+                          <span className={`text-sm transition-colors ${
+                            selectedRevenue === rev ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'
+                          }`}>{rev}</span>
                         </div>
                       ))}
                     </div>
