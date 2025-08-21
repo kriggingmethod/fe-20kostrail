@@ -437,13 +437,6 @@ export default function Index() {
         </div>
       </div>
 
-      {/* Keyboard navigation */}
-      <div className="sr-only">
-        <button onKeyDown={(e) => {
-          if (e.key === 'ArrowLeft') prevSlide();
-          if (e.key === 'ArrowRight') nextSlide();
-        }} />
-      </div>
     </div>
   );
 }
