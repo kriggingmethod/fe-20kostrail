@@ -254,14 +254,14 @@ export default function Index() {
 
             {/* Vision slide */}
             {slide.type === 'vision' && (
-              <div className="text-center space-y-12">
-                <h2 className="text-4xl md:text-5xl font-light text-foreground">
+              <div className="text-center space-y-16">
+                <h2 className="text-6xl md:text-7xl font-display font-normal text-foreground">
                   {slide.title}
                 </h2>
-                <p className="text-2xl md:text-3xl text-muted-foreground font-light leading-relaxed max-w-3xl mx-auto">
+                <p className="text-3xl md:text-5xl text-foreground font-grotesk font-light leading-tight max-w-4xl mx-auto">
                   {slide.subtitle}
                 </p>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-grotesk">
                   {slide.content}
                 </p>
               </div>
