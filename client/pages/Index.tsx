@@ -175,66 +175,39 @@ export default function Index() {
   const Icon = slide.icon;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 text-foreground relative overflow-hidden">
-      {/* Premium background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-l from-blue-500/10 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-transparent rounded-full blur-3xl" />
-      {/* Header with slide navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-border/50 shadow-premium">
-        {/* Progress bar */}
-        <div className="h-1 bg-muted-foreground/20">
-          <div
-            className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500 ease-out"
-            style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
-          />
-        </div>
-        <div className="container mx-auto px-6 py-4">
+    <div className="min-h-screen bg-background text-foreground relative">
+      {/* Minimal header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+        <div className="container mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
-            <div className="text-sm font-medium text-muted-foreground flex items-center space-x-2">
-              <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse" />
-              <span>Kos Trail Pitch Deck</span>
+            <div className="text-sm font-medium text-muted-foreground font-grotesk">
+              Kos Trail
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-3">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-300 hover:scale-110 relative ${
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
                     index === currentSlide
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 w-8 glow'
-                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/70 w-2'
+                      ? 'bg-primary w-6'
+                      : 'bg-border hover:bg-muted-foreground/50'
                   }`}
                 />
               ))}
             </div>
-            <div className="text-sm font-medium text-muted-foreground">
-              {currentSlide + 1} / {slides.length}
+            <div className="text-sm font-medium text-muted-foreground font-grotesk">
+              {currentSlide + 1} of {slides.length}
             </div>
           </div>
         </div>
       </header>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-foreground/20 rounded-full animate-pulse"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${30 + i * 10}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: '3s'
-            }}
-          />
-        ))}
-      </div>
 
       {/* Main slide content */}
-      <main className="pt-20 pb-20 relative z-10">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="min-h-[80vh] flex flex-col justify-center animate-slide-up bg-background/30 backdrop-blur-sm rounded-3xl border border-border/30 shadow-2xl p-8" key={currentSlide}>
+      <main className="pt-32 pb-20">
+        <div className="container mx-auto px-8 max-w-5xl">
+          <div className="min-h-[75vh] flex flex-col justify-center" key={currentSlide}>
             
             {/* Title slide */}
             {slide.type === 'title' && (
@@ -263,28 +236,18 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <h1 className="text-6xl md:text-8xl font-light tracking-tight bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent animate-fade-in">
+                <div className="space-y-6">
+                  <h1 className="text-7xl md:text-9xl font-display font-normal tracking-tight text-foreground">
                     {slide.title}
                   </h1>
-                  <p className="text-xl md:text-3xl text-muted-foreground font-light animate-fade-in animate-delay-200">
+                  <p className="text-2xl md:text-3xl text-muted-foreground font-grotesk font-light">
                     {slide.subtitle}
                   </p>
                 </div>
-                <div className="pt-8">
-                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-fade-in animate-delay-300">
+                <div className="pt-12">
+                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-grotesk">
                     {slide.content}
                   </p>
-                  <div className="mt-12 animate-fade-in animate-delay-500">
-                    <div className="flex justify-center">
-                      <div className="flex flex-col items-center space-y-2">
-                        <div className="text-xs text-muted-foreground">Navigate with ← → or click</div>
-                        <div className="w-6 h-10 border border-muted-foreground/30 rounded-full flex justify-center">
-                          <div className="w-1 h-3 bg-muted-foreground/50 rounded-full mt-2 animate-bounce" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             )}
