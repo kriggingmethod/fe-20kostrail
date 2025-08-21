@@ -104,6 +104,33 @@ const slides = [
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Set document title
+  useEffect(() => {
+    document.title = 'Kos Trail - Pitch Deck';
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        setCurrentSlide(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        setCurrentSlide(slides.length - 1);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentSlide]);
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
