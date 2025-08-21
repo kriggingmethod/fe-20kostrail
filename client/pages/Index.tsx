@@ -106,6 +106,8 @@ export default function Index() {
   const [animateStats, setAnimateStats] = useState(false);
   const [selectedRevenue, setSelectedRevenue] = useState<string | null>(null);
   const [currentStep, setCurrentStep] = useState(0);
+  const [logoClicked, setLogoClicked] = useState(false);
+  const [showLogoModal, setShowLogoModal] = useState(false);
 
   // Set document title
   useEffect(() => {
@@ -209,12 +211,30 @@ export default function Index() {
             {/* Title slide */}
             {slide.type === 'title' && (
               <div className="text-center space-y-8">
-                <div className="w-24 h-24 mx-auto transform hover:scale-110 transition-transform duration-300">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2Fe4e2236e4ab342f3b8997bbfbcd8d920%2Fa0e817b075af44d1b9d04b79705e6cae?format=webp&width=800"
-                    alt="Kos Trail Logo"
-                    className="w-full h-full object-contain"
-                  />
+                <div
+                  className="w-24 h-24 mx-auto transform hover:scale-110 transition-all duration-500 cursor-pointer group relative"
+                  onClick={() => {
+                    setLogoClicked(!logoClicked);
+                    setShowLogoModal(true);
+                  }}
+                  onMouseEnter={() => setLogoClicked(true)}
+                  onMouseLeave={() => setLogoClicked(false)}
+                >
+                  <div className={`transition-all duration-500 ${
+                    logoClicked ? 'rotate-12 scale-110' : 'rotate-0 scale-100'
+                  }`}>
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2Fe4e2236e4ab342f3b8997bbfbcd8d920%2Fa0e817b075af44d1b9d04b79705e6cae?format=webp&width=800"
+                      alt="Kos Trail Logo"
+                      className="w-full h-full object-contain drop-shadow-lg"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="text-xs text-muted-foreground bg-background/80 backdrop-blur-sm px-2 py-1 rounded whitespace-nowrap">
+                      Click to explore
+                    </div>
+                  </div>
                 </div>
                 <div className="space-y-4">
                   <h1 className="text-6xl md:text-7xl font-light text-foreground tracking-tight">
@@ -488,12 +508,18 @@ export default function Index() {
             {(slide.type === 'team' || slide.type === 'brand' || slide.type === 'cta') && (
               <div className="text-center space-y-12">
                 {slide.type === 'brand' ? (
-                  <div className="w-16 h-16 mx-auto">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2Fe4e2236e4ab342f3b8997bbfbcd8d920%2Fa0e817b075af44d1b9d04b79705e6cae?format=webp&width=800"
-                      alt="Kos Trail Logo"
-                      className="w-full h-full object-contain"
-                    />
+                  <div
+                    className="w-16 h-16 mx-auto transform hover:scale-110 transition-all duration-500 cursor-pointer group relative"
+                    onClick={() => setShowLogoModal(true)}
+                  >
+                    <div className="transform hover:rotate-6 transition-transform duration-300">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2Fe4e2236e4ab342f3b8997bbfbcd8d920%2Fa0e817b075af44d1b9d04b79705e6cae?format=webp&width=800"
+                        alt="Kos Trail Logo"
+                        className="w-full h-full object-contain drop-shadow-lg"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg" />
                   </div>
                 ) : (
                   Icon && <Icon className="w-12 h-12 mx-auto text-muted-foreground" />
