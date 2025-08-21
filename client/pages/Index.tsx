@@ -209,7 +209,7 @@ export default function Index() {
             {/* Title slide */}
             {slide.type === 'title' && (
               <div className="text-center space-y-8">
-                <div className="w-24 h-24 mx-auto">
+                <div className="w-24 h-24 mx-auto transform hover:scale-110 transition-transform duration-300">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2Fe4e2236e4ab342f3b8997bbfbcd8d920%2Fa0e817b075af44d1b9d04b79705e6cae?format=webp&width=800"
                     alt="Kos Trail Logo"
