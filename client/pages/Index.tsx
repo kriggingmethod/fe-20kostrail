@@ -516,22 +516,22 @@ export default function Index() {
 
       {/* Navigation controls */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="flex items-center space-x-4 bg-background/80 backdrop-blur-sm border border-border rounded-full px-6 py-3">
+        <div className="flex items-center space-x-4 bg-background/90 backdrop-blur-sm border border-border rounded-full px-6 py-3 shadow-lg">
           <button
             onClick={prevSlide}
-            className="p-2 rounded-full hover:bg-muted transition-colors"
+            className="p-2 rounded-full hover:bg-muted transition-all duration-200 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             disabled={currentSlide === 0}
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          
-          <span className="text-sm text-muted-foreground px-4">
+
+          <span className="text-sm text-muted-foreground px-4 font-medium">
             {currentSlide + 1} of {slides.length}
           </span>
-          
+
           <button
             onClick={nextSlide}
-            className="p-2 rounded-full hover:bg-muted transition-colors"
+            className="p-2 rounded-full hover:bg-muted transition-all duration-200 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             disabled={currentSlide === slides.length - 1}
           >
             <ChevronRight className="w-5 h-5" />
